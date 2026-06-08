@@ -290,4 +290,8 @@ export const tickerItems = [
   "Campus Ambassador programme — represent IMIG at your batch",
   "Research collaboration requests open — Contact Journal Club",
   "Clinical Language Handbook available for FREE — link in resources",
-  "Subscribe to IMIG SMC on YouTube for recor
+  "Subscribe to IMIG SMC on YouTube for recorded sessions",
+]
+
+// Legacy export for admin page compatibility
+export const resources = resourceCategories
