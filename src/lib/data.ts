@@ -1,6 +1,8 @@
 // src/lib/data.ts
 // Central content file — edit here to update the whole site
 
+import { PhoneOutgoing } from "lucide-react"
+
 export const siteConfig = {
   name: "IMIG SMC",
   fullName: "Internal Medicine Interest Group",
@@ -139,7 +141,7 @@ export const teamMembers = [
 // ---- About Page ----
 
 export const patrons = [
-  { name: "Dr. Urooj Lal Rehman",   role: "Patron in Chief" },
+  { name: "Dr. Urooj Lal Rehman",   role: "Patron in Chief"  },
   { name: "Prof. Dr. Ambreen Usmani", role: "Principal, SMC" },
 ]
 

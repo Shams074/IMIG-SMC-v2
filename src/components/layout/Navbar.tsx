@@ -30,7 +30,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
           <Image
-            src="/imig-logo.png"
+            src="/New IMIG Logo.png"
             alt="IMIG SMC Logo"
             width={56}
             height={56}
