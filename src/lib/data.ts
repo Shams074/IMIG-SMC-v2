@@ -18,9 +18,10 @@ export const navLinks = [
   { label: "About Us",         href: "/about" },
   { label: "Events",           href: "/events" },
   { label: "Resource Library", href: "/resources" },
-  { label: "Research",         href: "/research" },
+  { label: "Departments",      href: "/departments" },
   { label: "IMpact",           href: "/impact" },
   { label: "Membership",       href: "/membership" },
+  { label: "Social Wall",      href: "/social-wall" },
 ]
 
 export const heroStats = [
@@ -47,10 +48,10 @@ export const highlights = [
   },
   {
     icon: "🔬",
-    title: "Research",
-    desc: "Ongoing projects, publication opportunities, and collaboration requests.",
-    href: "/research",
-    cta: "Explore Research",
+    title: "Departments",
+    desc: "Operations, Learning, Guidance, and Journal Club.",
+    href: "/departments",
+    cta: "Explore Departments",
   },
   {
     icon: "📰",
@@ -69,8 +70,8 @@ export const highlights = [
   {
     icon: "📸",
     title: "Social Wall",
-    desc: "Live feed of IMIG's latest Instagram posts and Reels.",
-    href: "/contact",
+    desc: "Follow IMIG's social handles to keep up to date",
+    href: "/social-wall",
     cta: "Follow Us",
   },
 ]
@@ -159,24 +160,24 @@ export const directors = [
 
 export const departments = [
   {
-    name: "Operations Department",
-    desc: "Manages logistics, event coordination, and organizational operations.",
-    href: "/about/operations",
-  },
-  {
-    name: "Learning Department",
-    desc: "Curates educational content, resources, and webinar programmes.",
-    href: "/about/learning",
-  },
-  {
-    name: "Guidance Department",
-    desc: "Provides mentorship, career guidance, and student support.",
-    href: "/about/guidance",
+    name: "Academic & Mentorship",
+    desc: "Curates educational content, resources, guest talks, hands-on experiences, and career guidance.",
+    href: "/departments/academic-mentorship",
   },
   {
     name: "Journal Club",
     desc: "Coordinates research projects, publication support, and critical appraisal sessions.",
-    href: "/about/journal-club",
+    href: "/departments/journal-club",
+  },
+  {
+    name: "Media & Marketing",
+    desc: "Manages social media handling, marketing, and creative design.",
+    href: "/departments/media-marketing",
+  },
+  {
+    name: "Social & Logistics",
+    desc: "Manages event logistics, planning, and on-ground coverage.",
+    href: "/departments/social-logistics",
   },
 ]
 
@@ -188,23 +189,43 @@ export const timeline = [
   },
   {
     year: "2023",
-    title: "ACP Registration",
-    desc: "Successfully registered as an official student interest group with the American College of Physicians.",
+    title: "ACP Affiliation",
+    desc: "Successfully registered all our members with the American College of Physicians.",
   },
   {
     year: "2024",
-    title: "First IMpact Newsletter",
-    desc: "Launched the IMpact Monthly Newsletter on LinkedIn, reaching hundreds of medical students.",
+    title: "First Outreach Event",
+    desc: "Organized the first external collaborative suturing workshop.",
   },
   {
     year: "2024",
-    title: "1000+ Members",
-    desc: "Crossed 1000 registered members milestone, becoming one of SMC's largest student organizations.",
+    title: "1000 Followers",
+    desc: "Crossed 1000 followers on Instagram before the end of the first term.",
   },
   {
     year: "2025",
+    title: "Launched IMpact Newsletter",
+    desc: "Launched the IMpact Monthly Newsletter on LinkedIn, reaching thousands of medical students and faculty around the world.",
+  },
+  {
+    year: "2025",
+    title: "2000 Followers",
+    desc: "Reached 2000 followers on Instagram, creating tremendous momentum.",
+  },
+  {
+    year: "2026",
+    title: "Launched imig.smc.pk",
+    desc: "Officially launched the website of IMIG SMC.",
+  },
+  {
+    year: "2026",
+    title: "3000 Followers",
+    desc: "Crossed 3000 followers on Instagram, continuing the annual streak.",
+  },
+  {
+    year: "2026",
     title: "Clinical Language Handbook",
-    desc: "Published Pakistan's first multilingual clinical history-taking handbook — free for all students.",
+    desc: "Published Pakistan's first multilingual clinical history-taking handbook.",
   },
 ]
 
@@ -249,21 +270,35 @@ export const resourceCategories: ResourceCategory[] = [
     category: "Clinical Guidelines",
     icon: "📋",
     subtypes: ["Pakistan", "USA", "Australia", "UK"],
-    items: [], // Add items: { title, subtype, type, href }
+    items: [
+      { title: "Pakistan Guidelines", type: "Link", subtype: "Pakistan", href: "https://www.cpsp.edu.pk/clinical-guideline.php" },
+      { title: "USA Guidelines", type: "Link", subtype: "USA", href: "https://www.acponline.org/clinical-information/clinical-guidelinesrecommendations" },
+      { title: "Australia Guidelines", type: "Link", subtype: "Australia", href: "https://www.racgp.org.au/clinical-resources/clinicalguidelines/key-racgp-guidelines/view-all-racgp-guidelines" },
+      { title: "UK Guidelines", type: "Link", subtype: "UK", href: "https://www.nice.org.uk/guidance" },
+    ],
   },
   {
     name: "High-Yield Infographics",
     category: "High-Yield Infographics",
     icon: "📝",
     subtypes: ["KTDs", "Clinical Cases"],
-    items: [],
+    items: [
+      { title: "Know The Differences Season 1", type: "Highlight", subtype: "KTDs", href: "#" },
+      { title: "Know The Differences Season 2", type: "Highlight", subtype: "KTDs", href: "#" },
+      { title: "Clinical Cases 2023", type: "Highlight", subtype: "Clinical Cases", href: "#" },
+      { title: "Clinical Cases 2024", type: "Highlight", subtype: "Clinical Cases", href: "#" },
+      { title: "Clinical Cases 2025", type: "Highlight", subtype: "Clinical Cases", href: "#" },
+      { title: "Clinical Cases 2026", type: "Highlight", subtype: "Clinical Cases", href: "#" },
+    ],
   },
   {
     name: "History Templates",
     category: "History Templates",
     icon: "📄",
     subtypes: [],
-    items: [],
+    items: [
+      { title: "PDFs coming soon", type: "Placeholder" }
+    ],
   },
   {
     name: "Recorded Sessions",
@@ -278,7 +313,7 @@ export const resourceCategories: ResourceCategory[] = [
 export const clinicalHandbook = {
   title: "Clinical Language Handbook",
   subtitle: "Pakistan's First Multilingual Clinical History-Taking Handbook",
-  desc: "A free resource for all medical students — available in multiple languages to help you take clinical histories effectively.",
+  desc: "A clinical guide for all medical students, clinicians and healthcare practitioners — available for FREE to help you take clinical histories effectively and to understand your patient very well.",
   pdfLink: "#", // TODO: Replace with actual PDF link
 }
 

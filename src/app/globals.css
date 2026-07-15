@@ -22,9 +22,14 @@ body {
 .ticker-track { overflow: hidden; }
 .ticker-inner {
   display: flex;
-  gap: 60px;
+  gap: 40px;
   white-space: nowrap;
-  animation: ticker 18s linear infinite;
+  animation: ticker 6s linear infinite; /* Faster on mobile */
+}
+@media (min-width: 768px) {
+  .ticker-inner {
+    animation: ticker 12s linear infinite; /* Normal on desktop */
+  }
 }
 .ticker-inner:hover { animation-play-state: paused; }
 

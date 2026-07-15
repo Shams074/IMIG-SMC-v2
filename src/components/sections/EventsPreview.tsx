@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { events } from '@/lib/data'
+import { events as hardcodedEvents } from '@/lib/data'
 import { Section, SectionHeader, Tag, Button } from '@/components/ui'
+import { createClient } from '@/lib/supabase/server'
 
 const tagColor: Record<string, 'blue' | 'teal' | 'amber' | 'red'> = {
   Webinar:     'blue',
@@ -9,16 +10,44 @@ const tagColor: Record<string, 'blue' | 'teal' | 'amber' | 'red'> = {
   Newsletter:  'red',
 }
 
-export default function EventsPreview() {
-  const upcoming = events.filter(e => e.upcoming)
+export default async function EventsPreview() {
+  const supabase = createClient()
+
+  // Fetch 3 most recent events from Supabase
+  const { data: dbEvents } = await supabase
+    .from('events')
+    .select('*')
+    .eq('is_active', true)
+    .order('date', { ascending: false })
+    .limit(3)
+
+  let displayEvents: any[] = []
+
+  if (dbEvents && dbEvents.length > 0) {
+    displayEvents = dbEvents.map(e => {
+      const dateObj = new Date(e.date)
+      return {
+        day: dateObj.getDate().toString().padStart(2, '0'),
+        month: dateObj.toLocaleString('default', { month: 'short' }),
+        year: dateObj.getFullYear().toString(),
+        title: e.title,
+        desc: e.description,
+        tag: 'Webinar', // Default tag as it's not in the DB
+        upcoming: dateObj > new Date()
+      }
+    })
+  } else {
+    // Fallback to hardcoded events
+    displayEvents = hardcodedEvents.slice(0, 3)
+  }
 
   return (
     <Section>
       <div className="flex items-end justify-between mb-10">
         <SectionHeader
           label="Events Calendar"
-          title="Upcoming Events"
-          subtitle="Webinars, guest lectures, case discussions, and competitions — stay in the loop."
+          title="Past Events"
+          subtitle="Workshops, webinars, guest lectures, case discussions, competitions and many more"
         />
         <Button href="/events" variant="outline" className="hidden sm:inline-flex flex-shrink-0 mb-10">
           View All Events →
@@ -26,7 +55,7 @@ export default function EventsPreview() {
       </div>
 
       <div className="flex flex-col gap-3">
-        {upcoming.map((event, i) => (
+        {displayEvents.map((event, i) => (
           <Link
             key={i}
             href="/events"
@@ -46,7 +75,7 @@ export default function EventsPreview() {
               <p className="text-xs text-blue-600/70 truncate">{event.desc}</p>
             </div>
 
-            <Tag color={tagColor[event.tag] || 'blue'}>{event.tag}</Tag>
+            <Tag color={tagColor[event.tag] || 'blue'}>{event.tag || 'Event'}</Tag>
           </Link>
         ))}
       </div>

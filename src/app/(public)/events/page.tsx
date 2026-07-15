@@ -36,13 +36,23 @@ export default async function EventsPage() {
   return (
     <>
       {/* Hero */}
-      <div className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-300 mb-3">Events</p>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">IMIG Calendar</h1>
-          <p className="text-white/70 text-lg max-w-xl">
-            Guest lectures, workshops, case-based discussions, competitions, and many more.
-          </p>
+      <div className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-6 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-end justify-between gap-8">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-300 mb-3">Events</p>
+            <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">IMIG Calendar</h1>
+            <p className="text-white/70 text-lg max-w-xl">
+              Guest lectures, workshops, case-based discussions, competitions, and many more.
+            </p>
+          </div>
+          <div className="lg:text-right">
+            <p className="text-sm text-blue-200 bg-white/10 backdrop-blur-sm border border-white/20 px-4 py-2 rounded-xl inline-block">
+              Stay tuned — upcoming events are announced on our{' '}
+              <a href="https://instagram.com/imig.smc" target="_blank" rel="noopener noreferrer" className="text-white hover:underline font-medium">Instagram</a>{' '}
+              and{' '}
+              <a href="https://linkedin.com/company/imigsmc" target="_blank" rel="noopener noreferrer" className="text-white hover:underline font-medium">LinkedIn</a>.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -111,7 +121,7 @@ export default async function EventsPage() {
 
         {/* Past Events */}
         <div>
-          <SectionHeader label="Archive" title="Past Events" />
+          <SectionHeader label="" title="Past Events" />
           <div className="flex flex-col gap-4">
             {/* DB past events */}
             {pastDbEvents.map(event => (
@@ -154,19 +164,6 @@ export default async function EventsPage() {
               </div>
             ))}
           </div>
-
-          {!hasDbEvents && pastDbEvents.length === 0 && (
-            <div className="text-center py-16 text-blue-400">No events found.</div>
-          )}
-        </div>
-
-        <div className="mt-10 p-5 bg-blue-50 rounded-2xl border border-blue-200 text-center">
-          <p className="text-sm text-blue-700 font-medium">
-            Stay tuned — upcoming events are announced on our{' '}
-            <a href="https://instagram.com/imig.smc" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">Instagram</a>{' '}
-            and{' '}
-            <a href="https://linkedin.com/company/imigsmc" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">LinkedIn</a>.
-          </p>
         </div>
       </Section>
     </>

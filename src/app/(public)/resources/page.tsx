@@ -8,7 +8,7 @@ export default function ResourcesPage() {
       <div className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-300 mb-3">Resource Library</p>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Resource Library</h1>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">IMIG Resource Library</h1>
           <p className="text-white/70 text-lg max-w-xl">
             Latest guidelines, high-yield infographics, templates and recorded YouTube sessions.
           </p>
@@ -19,22 +19,27 @@ export default function ResourcesPage() {
       <div className="bg-gradient-to-r from-blue-700 to-blue-900 px-6 py-10">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6 bg-white/10 border border-white/20 rounded-3xl p-8 backdrop-blur-sm">
-            <div>
+            <div className="flex-1">
               <span className="inline-block text-[10px] font-bold uppercase tracking-widest bg-amber-400 text-amber-900 px-3 py-1 rounded-full mb-3">
                 🇵🇰 Pakistan&apos;s First
               </span>
               <h2 className="font-serif text-2xl font-bold text-white mb-2">{clinicalHandbook.title}</h2>
               <p className="text-white/70 text-sm leading-relaxed max-w-xl">{clinicalHandbook.desc}</p>
             </div>
-            <a
-              href={clinicalHandbook.pdfLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex-shrink-0 flex items-center gap-2 bg-white text-blue-800 font-semibold text-sm px-6 py-3 rounded-xl hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap"
-            >
-              <Download size={16} />
-              Download FREE PDF
-            </a>
+            <div className="flex flex-col items-center gap-4 flex-shrink-0">
+              <div className="w-24 h-32 bg-blue-100 rounded-lg shadow-2xl flex items-center justify-center relative transform -rotate-2 hover:rotate-0 transition-transform">
+                <span className="text-4xl drop-shadow-md">📘</span>
+              </div>
+              <a
+                href={clinicalHandbook.pdfLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-white text-blue-800 font-semibold text-sm w-full px-6 py-3 rounded-xl hover:shadow-xl hover:-translate-y-0.5 transition-all whitespace-nowrap"
+              >
+                <Download size={16} />
+                Download PDF
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -73,17 +78,24 @@ export default function ResourcesPage() {
                 </div>
               )}
 
-              {/* YouTube playlist embed */}
-              {cat.name === 'Recorded Sessions' && cat.youtubePlaylistId ? (
-                <div className="rounded-2xl overflow-hidden border border-blue-100">
+              {/* YouTube RSS / Feed embed */}
+              {cat.name === 'Recorded Sessions' ? (
+                <div className="rounded-2xl overflow-hidden border border-blue-100 bg-white p-2">
+                  {/* Using a placeholder embed for the YouTube RSS feed since direct channel embeds require API or specific playlist IDs */}
                   <iframe
                     width="100%"
-                    height="220"
-                    src={`https://www.youtube.com/embed/videoseries?list=${cat.youtubePlaylistId}`}
-                    title="IMIG SMC YouTube Playlist"
+                    height="400"
+                    src="https://www.youtube.com/embed?listType=user_uploads&list=imigsmc"
+                    title="IMIG SMC YouTube Feed"
+                    style={{ border: 'none' }}
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
                   />
+                  <div className="text-center mt-2 pb-2">
+                    <a href="https://www.youtube.com/@imigsmc" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-red-600 hover:text-red-800 flex items-center justify-center gap-1">
+                      <Youtube size={16} /> Subscribe on YouTube
+                    </a>
+                  </div>
                 </div>
               ) : cat.items && cat.items.length > 0 ? (
                 <div className="flex flex-col gap-3">

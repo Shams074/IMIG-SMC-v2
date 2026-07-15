@@ -19,6 +19,13 @@ const membershipTypes = [
     perks: ['All student benefits', 'Leadership role', 'Special recognition', 'Networking opportunities'],
     recommended: false,
   },
+  {
+    title: 'SMC Core Team Member',
+    subtitle: 'Executive & Department Lead',
+    desc: 'Reserved for students inducted into the IMIG SMC Executive Committee and working departments.',
+    perks: ['Leadership experience', 'Exclusive networking with faculty', 'Priority access to all workshops', 'All student benefits'],
+    recommended: false,
+  },
 ]
 
 export default async function MembershipPage() {
@@ -45,6 +52,8 @@ export default async function MembershipPage() {
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Join IMIG SMC</h1>
           <p className="text-white/70 text-lg max-w-xl">
             Become a General Member and unlock access to our member only events, resources, research opportunities, and the ACP network.
+            <br /><br />
+            <span className="font-semibold text-blue-200">Membership applications for the 2025/2026 cycle will open soon. Please check back later.</span>
           </p>
         </div>
       </div>
@@ -138,8 +147,9 @@ export default async function MembershipPage() {
       <Section className="bg-green-50 border-y border-green-100">
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-shrink-0 w-20 h-20 rounded-2xl bg-green-700/20 border border-green-200 flex items-center justify-center text-green-700 font-bold text-xl">
-              ACP
+            <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-white border border-green-200 flex flex-col items-center justify-center text-green-700 shadow-sm relative overflow-hidden">
+              <span className="text-3xl mb-1">🏛️</span>
+              <span className="text-[10px] font-bold uppercase tracking-widest text-green-800">ACP Logo</span>
             </div>
             <div className="flex-1 text-center md:text-left">
               <p className="text-xs font-bold uppercase tracking-widest text-green-600 mb-2">Bonus Opportunity</p>

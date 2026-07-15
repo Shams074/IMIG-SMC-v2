@@ -6,7 +6,7 @@ export default function NewsTicker() {
 
   return (
     <div className="bg-blue-100 border-y border-blue-200 py-3 flex items-center gap-4 overflow-hidden">
-      <div className="flex-shrink-0 bg-blue-500 text-white text-[10px] font-bold uppercase tracking-[0.12em] px-3 py-1.5 rounded ml-4">
+      <div className="flex-shrink-0 bg-red-800 text-white text-[10px] font-bold uppercase tracking-[0.12em] px-3 py-1.5 rounded ml-4">
         Updates
       </div>
       <div className="ticker-track flex-1">

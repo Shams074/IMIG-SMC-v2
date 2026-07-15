@@ -30,7 +30,7 @@ module.exports = {
         sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
       },
       animation: {
-        'ticker': 'ticker 30s linear infinite',
+        'ticker': 'ticker 15s linear infinite',
         'fade-up': 'fadeUp 0.6s ease forwards',
         'fade-in': 'fadeIn 0.5s ease forwards',
       },

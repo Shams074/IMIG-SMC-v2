@@ -1,16 +1,30 @@
 import { Section, SectionHeader } from '@/components/ui'
-import { Mail, Linkedin, Instagram, MapPin, Youtube } from 'lucide-react'
+import { Mail, Linkedin, Instagram, MapPin, Youtube, ExternalLink } from 'lucide-react'
 import { siteConfig } from '@/lib/data'
+import { createClient } from '@/lib/supabase/server'
+import Image from 'next/image'
+import Link from 'next/link'
 
-export default function ContactPage() {
+export const revalidate = 60
+
+export default async function SocialWallPage() {
+  const supabase = createClient()
+
+  const { data: posts } = await supabase
+    .from('instagram_posts')
+    .select('*')
+    .eq('is_active', true)
+    .order('display_order', { ascending: true })
+    .limit(6)
+
   return (
     <>
       <div className="bg-gradient-to-br from-blue-900 to-blue-700 py-20 px-6">
         <div className="max-w-7xl mx-auto">
-          <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-300 mb-3">Contact</p>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Get in Touch</h1>
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-300 mb-3">Social Wall</p>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Connect with Us</h1>
           <p className="text-white/70 text-lg max-w-xl">
-            Reach us via email, LinkedIn, or Instagram. We&apos;d love to hear from you.
+            Reach us via email, LinkedIn, or follow our journey on Instagram. We'd love to hear from you.
           </p>
         </div>
       </div>
@@ -46,28 +60,44 @@ export default function ContactPage() {
             </div>
           </div>
 
-          {/* Instagram Social Wall placeholder */}
+          {/* Instagram Social Wall */}
           <div>
             <SectionHeader label="Social Wall" title="Latest from Instagram" />
-            {/* TODO: Embed Instagram feed here
-                Options:
-                1. Use a service like SnapWidget or LightWidget (free iframe embed)
-                2. Use Instagram Basic Display API
-                For now, showing a placeholder grid
-            */}
-            <div className="grid grid-cols-3 gap-2 mb-3">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <a
-                  key={i}
-                  href="https://instagram.com/imig.smc"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="aspect-square rounded-xl bg-gradient-to-br from-blue-100 to-blue-200 border border-blue-200 flex items-center justify-center text-blue-400 text-xs font-medium hover:opacity-80 transition-opacity"
-                >
-                  <Instagram size={20} />
-                </a>
-              ))}
-            </div>
+            
+            {posts && posts.length > 0 ? (
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mb-3">
+                {posts.map((post) => (
+                  <Link
+                    key={post.id}
+                    href={post.post_url ?? 'https://instagram.com/imig.smc'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative aspect-square rounded-2xl overflow-hidden bg-blue-100"
+                  >
+                    <Image
+                      src={post.image_url}
+                      alt={post.caption ?? 'IMIG SMC Instagram post'}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                    {/* Hover overlay with caption */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-2">
+                      {post.caption && (
+                        <p className="text-white text-[10px] leading-tight line-clamp-3">{post.caption}</p>
+                      )}
+                    </div>
+                    <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <ExternalLink size={12} className="text-white drop-shadow" />
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            ) : (
+              <div className="bg-blue-50 border border-dashed border-blue-200 rounded-2xl p-6 text-center text-blue-500 mb-3 text-sm">
+                Connect with our latest updates on Instagram.
+              </div>
+            )}
+
             <p className="text-xs text-blue-400 mt-3 text-center">
               Follow <a href="https://instagram.com/imig.smc" target="_blank" rel="noopener noreferrer" className="font-bold text-blue-500 hover:underline">@imig.smc</a> on Instagram for live updates
             </p>

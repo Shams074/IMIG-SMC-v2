@@ -27,8 +27,8 @@ export default function ImpactSection() {
 
         {/* Social Stats */}
         <div>
-          <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-500 mb-2">Follow IMIG</p>
-          <h3 className="font-serif text-2xl font-bold text-blue-900 mb-6">IMIG in Numbers</h3>
+          <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-500 mb-2">Follow IMIG SMC</p>
+          <h3 className="font-serif text-2xl font-bold text-blue-900 mb-6">IMIG Social Network in Numbers</h3>
           <div className="flex flex-col gap-4">
             <a href="https://linkedin.com/company/imigsmc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white rounded-2xl border border-blue-100 p-4 hover:border-blue-300 transition-colors">
               <div className="w-11 h-11 rounded-xl bg-blue-100 flex items-center justify-center">
@@ -48,13 +48,13 @@ export default function ImpactSection() {
                 <small className="text-xs text-blue-500">@imig.smc · Posts, Reels, and event highlights</small>
               </div>
             </a>
-            <a href="https://www.youtube.com/@imigsmc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white rounded-2xl border border-blue-100 p-4 hover:border-blue-300 transition-colors">
+            <a href="https://www.youtube.com/@imig-smc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 bg-white rounded-2xl border border-blue-100 p-4 hover:border-blue-300 transition-colors">
               <div className="w-11 h-11 rounded-xl bg-red-50 flex items-center justify-center">
                 <Youtube size={18} className="text-red-600" />
               </div>
               <div>
                 <strong className="block text-lg font-bold text-blue-900">450+ Subscribers</strong>
-                <small className="text-xs text-blue-500">IMIG SMC · Recorded sessions & highlights</small>
+                <small className="text-xs text-blue-500">IMIG-SMC · Recorded sessions & highlights</small>
               </div>
             </a>
           </div>

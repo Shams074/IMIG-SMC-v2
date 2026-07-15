@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 import { Menu, X } from 'lucide-react'
 import { navLinks } from '@/lib/data'
 
-// Filter out Contact from nav links — it's handled by the button
-const filteredLinks = navLinks.filter(l => l.href !== '/contact')
+// Navigation links are pulled directly from data.ts
+// Contact is handled by the button, Social Wall is handled as a standard link
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -44,7 +44,7 @@ export default function Navbar() {
 
         {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-1 ml-auto">
-          {filteredLinks.map((link) => {
+          {navLinks.map((link) => {
             const active = pathname === link.href
             return (
               <li key={link.href}>
@@ -85,7 +85,7 @@ export default function Navbar() {
       {/* Mobile Nav */}
       {mobileOpen && (
         <div className="lg:hidden border-t border-blue-100 bg-white px-6 py-4 flex flex-col gap-1">
-          {filteredLinks.map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}

@@ -9,13 +9,13 @@ const navigate = [
   { label: "About Us",         href: "/about" },
   { label: "Events",           href: "/events" },
   { label: "Resource Library", href: "/resources" },
-  { label: "Research",         href: "/research" },
+  { label: "Departments",      href: "/departments" },
 ]
 
 const engage = [
   { label: "IMpact Newsletter", href: "/impact" },
   { label: "Membership",        href: "/membership" },
-  { label: "Contact",           href: "/contact" },
+  { label: "Social Wall",       href: "/social-wall" },
 ]
 
 const legal = [
@@ -34,7 +34,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               {/* Logo — place your logo at /public/imig-logo.png
                   TODO: Once you add the file, replace the placeholder div with: */}
-                  {/* <Image src="/imig-logo.png" alt="IMIG SMC" width={40} height={40} className="rounded-full" /> */}
+                  <Image src="/New IMIG Logo.png" alt="IMIG SMC" width={40} height={40} className="rounded-full" />
              
             <Image
                 src="/imig-logo.png"

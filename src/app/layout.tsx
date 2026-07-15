@@ -1,5 +1,7 @@
 import type { Metadata } from 'next'
-import '@/styles/globals.css'
+// import '@/styles/globals.css'
+// import './globals.css'
+import './globals.css'
 
 export const metadata: Metadata = {
   title: 'IMIG SMC — Internal Medicine Interest Group',

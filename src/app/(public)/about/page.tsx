@@ -52,7 +52,7 @@ export default async function AboutPage() {
             <h3 className="font-serif text-lg font-bold text-green-900 mb-3">ACP Affiliation</h3>
             <p className="text-green-800/80 text-sm leading-relaxed">
               IMIG SMC is a recognized student interest group registered with the{' '}
-              <strong className="text-green-700">American College of Physicians (ACP)</strong>, the largest medical specialty society in the world.
+              <strong className="text-green-700">American College of Physicians (ACP)</strong>, the largest medical specialty society in the world. Through this affiliation, we are committed to implementing the ACP's vision for Internal Medicine Interest Groups (IMIGs).
             </p>
             <a href="https://www.acponline.org" target="_blank" rel="noopener noreferrer"
               className="inline-flex items-center gap-1.5 mt-3 text-xs font-semibold text-green-700 hover:text-green-900 transition-colors">
@@ -65,20 +65,41 @@ export default async function AboutPage() {
       {/* Timeline */}
       <Section className="bg-blue-50/50 border-y border-blue-100">
         <SectionHeader label="Our Story" title="Key Milestones" center />
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-4xl mx-auto px-4 sm:px-0">
           <div className="relative">
-            <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-blue-200" />
-            <div className="flex flex-col gap-8">
-              {timeline.map((item, i) => (
-                <div key={i} className="flex gap-6 items-start">
-                  <div className="w-12 h-12 rounded-full bg-blue-500 text-white flex items-center justify-center font-bold text-xs flex-shrink-0 z-10 shadow-md">
-                    {item.year.slice(2)}
+            {/* The vertical line */}
+            <div className="absolute left-[39px] sm:left-24 top-2 bottom-0 w-px bg-blue-200" />
+            
+            <div className="flex flex-col gap-10 sm:gap-12">
+              {Object.entries(
+                timeline.reduce((acc, item) => {
+                  if (!acc[item.year]) acc[item.year] = [];
+                  acc[item.year].push(item);
+                  return acc;
+                }, {} as Record<string, typeof timeline>)
+              ).map(([year, items]) => (
+                <div key={year} className="relative flex flex-col sm:flex-row gap-4 sm:gap-10 items-start">
+                  
+                  {/* Year Label (Left side) */}
+                  <div className="flex-shrink-0 w-24 pt-1 sm:text-right relative z-10 pl-1 sm:pl-0">
+                    <span className="text-2xl font-serif font-bold text-blue-900 bg-blue-50/50 pr-2">
+                      {year}
+                    </span>
                   </div>
-                  <div className="bg-white rounded-2xl border border-blue-100 p-5 flex-1">
-                    <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">{item.year}</span>
-                    <h4 className="font-semibold text-blue-900 mb-1 mt-1">{item.title}</h4>
-                    <p className="text-sm text-blue-600/70 leading-relaxed">{item.desc}</p>
+
+                  {/* Dot on the line */}
+                  <div className="absolute left-[35px] sm:left-[92px] top-3 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-blue-50/50 z-10" />
+
+                  {/* Items for this year (Right side) */}
+                  <div className="flex-1 flex flex-col gap-4 w-full pl-16 sm:pl-0">
+                    {items.map((item, i) => (
+                      <div key={i} className="bg-white rounded-2xl border border-blue-100 p-5 hover:shadow-md transition-shadow">
+                        <h4 className="font-semibold text-blue-900 mb-2">{item.title}</h4>
+                        <p className="text-sm text-blue-600/70 leading-relaxed">{item.desc}</p>
+                      </div>
+                    ))}
                   </div>
+                  
                 </div>
               ))}
             </div>
