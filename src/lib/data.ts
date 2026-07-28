@@ -27,7 +27,7 @@ export const navLinks = [
 ]
 
 export const heroStats = [
-  { value: "1700+", label: "LinkedIn Followers" },
+  { value: "1800+", label: "LinkedIn Followers" },
   { value: "3200+", label: "Instagram Followers" },
   { value: "450+",  label: "YouTube Subscribers" },
   { value: "1000+", label: "Registered Members" },
@@ -141,12 +141,12 @@ export const teamMembers = [
 // ---- About Page ----
 
 export const patrons = [
-  { name: "Dr. Urooj Lal Rehman",   role: "Patron in Chief"  },
-  { name: "Prof. Dr. Ambreen Usmani", role: "Principal, SMC" },
+  { name: "Dr. Urooj Lal Rehman",   role: "Patron in Chief", photo: "/team/Dr. Urooj lal .jpg" },
+  { name: "Prof. Dr. Ambreen Usmani", role: "Principal, SMC", photo: "/team/Dr amreen imig.jpg" },
 ]
 
 export const presidentsTeam = [
-  { name: "Abdul Thawwab",  role: "President",           photo: "/team/thawwab.jpg" }, 
+  { name: "Abdul Thawwab",  role: "President", photo: "/team/thawwab.jpg" }, 
   { name: "Maryam Zubair",  role: "Vice President", photo: "/team/MariumVP.jpg" },  
   { name: "Sundas Ishtiaq", role: "General Secretary", photo: "/team/SundasGS.jpg" },
   { name: "Areej Javed",    role: "Treasurer", photo: "/team/Treasurer.jpg" },
@@ -154,16 +154,16 @@ export const presidentsTeam = [
 ]
 
 export const directors = [
-  { name: "Mohammad Shahzaib", role: "Director – Operations" },
-  { name: "Sarah Imran",       role: "Director – Learning" },
-  { name: "Irtiza Imam",       role: "Director – Journal Club" },
-  { name: "Maheen Siddiqui",   role: "Director – Guidance" },
+  { name: "Mohammad Shahzaib", role: "Director – Operations", photo: "/team/Muhammad Shahzaib.jpg" },
+  { name: "Sarah Imran",       role: "Director – Learning", photo: "/team/sarah imran.jpg" },
+  { name: "Irtiza Imam",       role: "Director – Journal Club", photo: "/team/Sayed Irtaza imam.jpg" },
+  { name: "Maheen Siddiqui",   role: "Director – Guidance", photo: "/team/Maheen Siddiqi.jpg" },
 ]
 
 export const departments = [
   {
-    name: "Academic & Mentorship",
-    desc: "Curates educational content, resources, guest talks, hands-on experiences, and career guidance.",
+    name: "Operations Department",
+    desc: "Manages logistics, event coverage, Social media handling, marketing and creative designings.",
     href: "/departments/academic-mentorship",
   },
   {
@@ -172,13 +172,13 @@ export const departments = [
     href: "/departments/journal-club",
   },
   {
-    name: "Media & Marketing",
-    desc: "Manages social media handling, marketing, and creative design.",
+    name: "⁠⁠Learning Department",
+    desc: "Curates educational content, resources, and guest talks and webinar programs.",
     href: "/departments/media-marketing",
   },
   {
-    name: "Social & Logistics",
-    desc: "Manages event logistics, planning, and on-ground coverage.",
+    name: "⁠⁠Guidance Department",
+    desc: "Provides hands on experiences, career guidance, student support and many more.",
     href: "/departments/social-logistics",
   },
 ]

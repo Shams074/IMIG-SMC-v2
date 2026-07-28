@@ -64,14 +64,14 @@ export default function Footer() {
                 <Instagram size={13} className="text-blue-400" />
                 @{siteConfig.instagram}
               </a>
-              <a href={siteConfig.youtube} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+              <a href="https://www.youtube.com/@imig-smc" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
                 <Youtube size={13} className="text-blue-400" />
                 YouTube
               </a>
-              <span className="flex items-center gap-2 text-blue-400">
+              <a href="https://maps.app.goo.gl/z222UGwrmLDBgMLT6" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
                 <MapPin size={13} />
-                Karachi, Pakistan
-              </span>
+                Sindh Medical College
+              </a>
             </div>
           </div>
 

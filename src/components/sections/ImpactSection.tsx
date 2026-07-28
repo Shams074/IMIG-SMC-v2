@@ -35,7 +35,7 @@ export default function ImpactSection() {
                 <Linkedin size={18} className="text-blue-600" />
               </div>
               <div>
-                <strong className="block text-lg font-bold text-blue-900">1700+ Followers</strong>
+                <strong className="block text-lg font-bold text-blue-900">1800+ Followers</strong>
                 <small className="text-xs text-blue-500">Internal Medicine Interest Group SMC · LinkedIn</small>
               </div>
             </a>
@@ -63,3 +63,4 @@ export default function ImpactSection() {
     </Section>
   )
 }
+ 

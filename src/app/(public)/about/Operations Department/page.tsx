@@ -11,8 +11,8 @@ export default function DeptPage() {
             <ArrowLeft size={14} /> Back to About
           </Link>
           <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-300 mb-3">Department</p>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Guidance Department</h1>
-          <p className="text-white/70 text-lg max-w-xl">Provides mentorship, career guidance, and student support.</p>
+          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Operations Department</h1>
+          <p className="text-white/70 text-lg max-w-xl">Manages logistics, event coverage, Social media handling, marketing and creative designings.</p>
         </div>
       </div>
       <Section>
