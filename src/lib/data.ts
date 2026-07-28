@@ -146,7 +146,7 @@ export const patrons = [
 ]
 
 export const presidentsTeam = [
-  { name: "Abdul Thawwab",  role: "President", photo: "/team/thawwab.jpg" }, 
+  { name: "Abdul Thawwab",  role: "President", photo: "/team/Thawwab.jpg" }, 
   { name: "Maryam Zubair",  role: "Vice President", photo: "/team/MariumVP.jpg" },  
   { name: "Sundas Ishtiaq", role: "General Secretary", photo: "/team/SundasGS.jpg" },
   { name: "Areej Javed",    role: "Treasurer", photo: "/team/Treasurer.jpg" },
