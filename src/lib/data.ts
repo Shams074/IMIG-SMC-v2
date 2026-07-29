@@ -141,23 +141,23 @@ export const teamMembers = [
 // ---- About Page ----
 
 export const patrons = [
-  { name: "Dr. Urooj Lal Rehman",   role: "Patron in Chief", photo: "/team/Dr. Urooj lal .jpg" },
-  { name: "Prof. Dr. Ambreen Usmani", role: "Principal, SMC", photo: "/team/Dr amreen imig.jpg" },
+  { name: "Dr. Urooj Lal Rehman",   role: "Patron in Chief", photo: "/team/Dr. Urooj lal .jpg", linkedin: "" },
+  { name: "Prof. Dr. Ambreen Usmani", role: "Principal, SMC", photo: "/team/Dr amreen imig.jpg", linkedin: "" },
 ]
 
 export const presidentsTeam = [
-  { name: "Abdul Thawwab",  role: "President", photo: "/team/Thawwab.jpg" }, 
-  { name: "Maryam Zubair",  role: "Vice President", photo: "/team/MariumVP.jpg" },  
-  { name: "Sundas Ishtiaq", role: "General Secretary", photo: "/team/SundasGS.jpg" },
-  { name: "Areej Javed",    role: "Treasurer", photo: "/team/Treasurer.jpg" },
-  { name: "Ashbar Wadood",  role: "Assistant Treasurer", photo: "/team/Asst-Treasurer.jpg" },
+  { name: "Abdul Thawwab",  role: "President", photo: "/team/Thawwab.jpg", linkedin: "" },
+  { name: "Maryam Zubair",  role: "Vice President", photo: "/team/MariumVP.jpg", linkedin: "" },
+  { name: "Sundas Ishtiaq", role: "General Secretary", photo: "/team/SundasGS.jpg", linkedin: "" },
+  { name: "Areej Javed",    role: "Treasurer", photo: "/team/Treasurer.jpg", linkedin: "" },
+  { name: "Ashbar Wadood",  role: "Assistant Treasurer", photo: "/team/Asst-Treasurer.jpg", linkedin: "" },
 ]
 
 export const directors = [
-  { name: "Mohammad Shahzaib", role: "Director – Operations", photo: "/team/Muhammad Shahzaib.jpg" },
-  { name: "Sarah Imran",       role: "Director – Learning", photo: "/team/sarah imran.jpg" },
-  { name: "Irtiza Imam",       role: "Director – Journal Club", photo: "/team/Sayed Irtaza imam.jpg" },
-  { name: "Maheen Siddiqui",   role: "Director – Guidance", photo: "/team/Maheen Siddiqi.jpg" },
+  { name: "Mohammad Shahzaib", role: "Director – Operations", photo: "/team/Muhammad Shahzaib.jpg", linkedin: "" },
+  { name: "Sarah Imran",       role: "Director – Learning", photo: "/team/sarah imran.jpg", linkedin: "" },
+  { name: "Irtiza Imam",       role: "Director – Journal Club", photo: "/team/Sayed Irtaza imam.jpg", linkedin: "" },
+  { name: "Maheen Siddiqui",   role: "Director – Guidance", photo: "/team/Maheen Siddiqi.jpg", linkedin: "" },
 ]
 
 export const departments = [

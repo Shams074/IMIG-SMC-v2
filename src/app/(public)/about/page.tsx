@@ -3,7 +3,7 @@ import { patrons, presidentsTeam, directors, departments, timeline } from '@/lib
 import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, ExternalLink, Linkedin } from 'lucide-react'
+import { ArrowRight, ExternalLink } from 'lucide-react'
 
 export const revalidate = 60
 
@@ -125,14 +125,15 @@ export default async function AboutPage() {
                     {member.name.charAt(0)}
                   </div>
                 )}
-                <p className="font-semibold text-blue-900 text-xs">{member.name}</p>
-                <p className="text-[11px] text-blue-500 mt-0.5">{member.role}</p>
-                {member.linkedin_url && (
+                {member.linkedin_url ? (
                   <a href={member.linkedin_url} target="_blank" rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center mt-2 text-blue-400 hover:text-blue-600">
-                    <Linkedin size={13} />
+                    className="font-semibold text-blue-900 text-xs hover:text-blue-600 hover:underline underline-offset-2 transition-colors">
+                    {member.name}
                   </a>
+                ) : (
+                  <p className="font-semibold text-blue-900 text-xs">{member.name}</p>
                 )}
+                <p className="text-[11px] text-blue-500 mt-0.5">{member.role}</p>
               </Card>
             ))}
           </div>
@@ -150,7 +151,14 @@ export default async function AboutPage() {
                       {m.name.split(' ').slice(-1)[0][0]}{m.name.split(' ')[0][0]}
                     </div> */}
                     <div>
-                      <p className="font-semibold text-blue-900 text-sm">{m.name}</p>
+                      {m.linkedin ? (
+                        <a href={m.linkedin} target="_blank" rel="noopener noreferrer"
+                          className="font-semibold text-blue-900 text-sm hover:text-blue-600 hover:underline underline-offset-2 transition-colors">
+                          {m.name}
+                        </a>
+                      ) : (
+                        <p className="font-semibold text-blue-900 text-sm">{m.name}</p>
+                      )}
                       <p className="text-xs text-blue-500 mt-0.5">{m.role}</p>
                     </div>
                   </Card>
@@ -165,7 +173,14 @@ export default async function AboutPage() {
                 {presidentsTeam.map((m) => (
                   <Card key={m.name} className="text-center !p-4" hover={false}>
                     <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
-                    <p className="font-semibold text-blue-900 text-xs">{m.name}</p>
+                    {m.linkedin ? (
+                      <a href={m.linkedin} target="_blank" rel="noopener noreferrer"
+                        className="font-semibold text-blue-900 text-xs hover:text-blue-600 hover:underline underline-offset-2 transition-colors">
+                        {m.name}
+                      </a>
+                    ) : (
+                      <p className="font-semibold text-blue-900 text-xs">{m.name}</p>
+                    )}
                     <p className="text-[11px] text-blue-500 mt-0.5">{m.role}</p>
                   </Card>
                 ))}
@@ -182,7 +197,14 @@ export default async function AboutPage() {
                     {/* <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm mx-auto mb-2">
                       {m.name.charAt(0)}
                     </div> */}
-                    <p className="font-semibold text-blue-900 text-xs">{m.name}</p>
+                    {m.linkedin ? (
+                      <a href={m.linkedin} target="_blank" rel="noopener noreferrer"
+                        className="font-semibold text-blue-900 text-xs hover:text-blue-600 hover:underline underline-offset-2 transition-colors">
+                        {m.name}
+                      </a>
+                    ) : (
+                      <p className="font-semibold text-blue-900 text-xs">{m.name}</p>
+                    )}
                     <p className="text-[11px] text-blue-500 mt-0.5">{m.role}</p>
                   </Card>
                 ))}
