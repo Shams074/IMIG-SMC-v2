@@ -141,23 +141,23 @@ export const teamMembers = [
 // ---- About Page ----
 
 export const patrons = [
-  { name: "Dr. Urooj Lal Rehman",   role: "Patron in Chief", photo: "/team/Dr. Urooj lal .jpg", linkedin: "" },
-  { name: "Prof. Dr. Ambreen Usmani", role: "Principal, SMC", photo: "/team/Dr amreen imig.jpg", linkedin: "" },
+  { name: "Dr. Urooj Lal Rehman",   role: "Patron in Chief", photo: "/team/Dr. Urooj lal .jpg", linkedin: "https://www.linkedin.com/in/urooj-lal-rehman-3497b887/" },
+  { name: "Prof. Dr. Ambreen Usmani", role: "Principal, SMC", photo: "/team/Dr amreen imig.jpg", linkedin: "https://www.linkedin.com/in/ambreen-usmani-52319021/" },
 ]
 
 export const presidentsTeam = [
-  { name: "Abdul Thawwab",  role: "President", photo: "/team/Thawwab.jpg", linkedin: "" },
-  { name: "Maryam Zubair",  role: "Vice President", photo: "/team/MariumVP.jpg", linkedin: "" },
-  { name: "Sundas Ishtiaq", role: "General Secretary", photo: "/team/SundasGS.jpg", linkedin: "" },
-  { name: "Areej Javed",    role: "Treasurer", photo: "/team/Treasurer.jpg", linkedin: "" },
-  { name: "Ashbar Wadood",  role: "Assistant Treasurer", photo: "/team/Asst-Treasurer.jpg", linkedin: "" },
+  { name: "Abdul Thawwab",  role: "President", photo: "/team/Thawwab.jpg", linkedin: "https://www.linkedin.com/in/abdulthawwab" },
+  { name: "Maryam Zubair",  role: "Vice President", photo: "/team/MariumVP.jpg", linkedin: "https://www.linkedin.com/in/marium-zubair-752427300" },
+  { name: "Sundas Ishtiaq", role: "General Secretary", photo: "/team/SundasGS.jpg", linkedin: "https://www.linkedin.com/in/sundas-ishtiaq-4664b2318" },
+  { name: "Areej Javed",    role: "Treasurer", photo: "/team/Treasurer.jpg", linkedin: "https://www.linkedin.com/in/syeda-areej-javed-728306243" },
+  { name: "Ashbar Wadood",  role: "Assistant Treasurer", photo: "/team/Asst-Treasurer.jpg", linkedin: "https://www.linkedin.com/in/muhammad-ashbar-wadood-2a48bb319" },
 ]
 
 export const directors = [
-  { name: "Mohammad Shahzaib", role: "Director – Operations", photo: "/team/Muhammad Shahzaib.jpg", linkedin: "" },
-  { name: "Sarah Imran",       role: "Director – Learning", photo: "/team/sarah imran.jpg", linkedin: "" },
-  { name: "Irtiza Imam",       role: "Director – Journal Club", photo: "/team/Sayed Irtaza imam.jpg", linkedin: "" },
-  { name: "Maheen Siddiqui",   role: "Director – Guidance", photo: "/team/Maheen Siddiqi.jpg", linkedin: "" },
+  { name: "Mohammad Shahzaib", role: "Director – Operations", photo: "/team/Muhammad Shahzaib.jpg", linkedin: "https://www.linkedin.com/in/mohammad-shahzaib-930675273" },
+  { name: "Sarah Imran",       role: "Director – Learning", photo: "/team/sarah imran.jpg", linkedin: "https://www.linkedin.com/in/sarah-imran-683413326" },
+  { name: "Irtiza Imam",       role: "Director – Journal Club", photo: "/team/Sayed Irtaza imam.jpg", linkedin: "https://www.linkedin.com/in/syed-irtiza-imam-73771425b" },
+  { name: "Maheen Siddiqui",   role: "Director – Guidance", photo: "/team/Maheen Siddiqi.jpg", linkedin: "https://www.linkedin.com/in/maheen-siddiqui-a5223a347" },
 ]
 
 export const departments = [
