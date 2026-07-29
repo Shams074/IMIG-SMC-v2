@@ -28,7 +28,7 @@ export default function HeroSection() {
             A student-led organization at Jinnah Sindh Medical University dedicated to explore Internal Medicine through clinical excellence, research, mentorship and networking.
           </p>
 
-          <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-xl">
+          <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-xl lg:max-w-sm">
             From workshops and resources to research and networking — IMIG SMC has you covered throughout your medical school.
           </p>
         </div>
