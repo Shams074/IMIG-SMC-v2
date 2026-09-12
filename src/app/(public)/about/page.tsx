@@ -65,10 +65,10 @@ export default async function AboutPage() {
       {/* Timeline */}
       <Section className="bg-blue-50/50 border-y border-blue-100">
         <SectionHeader label="Our Story" title="Key Milestones" center />
-        <div className="max-w-4xl mx-auto px-4 sm:px-0">
+          <div className="max-w-4xl mx-auto px-4 sm:px-0">
           <div className="relative">
             {/* The vertical line */}
-            <div className="absolute left-[39px] sm:left-24 top-2 bottom-0 w-px bg-blue-200" />
+            <div className="absolute left-[56px] sm:left-24 top-2 bottom-0 w-px bg-blue-200" />
             
             <div className="flex flex-col gap-10 sm:gap-12">
               {Object.entries(
