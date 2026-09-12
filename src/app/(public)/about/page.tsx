@@ -88,8 +88,10 @@ export default async function AboutPage() {
                   </div>
 
                   {/* Dot on the line */}
-                  <div className="absolute left-[35px] sm:left-[92px] top-3 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-blue-50/50 z-10" />
-
+                  {/* <div className="absolute left-[35px] sm:left-[92px] top-3 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-blue-50/50 z-10" /> */}
+                  {/* Dot on the line */}
+                  <div className="absolute left-[35px] sm:left-[92px] top-12 sm:top-3 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-blue-50/50 z-10" />
+                  
                   {/* Items for this year (Right side) */}
                   <div className="flex-1 flex flex-col gap-4 w-full pl-16 sm:pl-0">
                     {items.map((item, i) => (

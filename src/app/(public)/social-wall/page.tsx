@@ -24,7 +24,7 @@ export default async function SocialWallPage() {
           <p className="text-xs font-bold uppercase tracking-[0.15em] text-blue-300 mb-3">Social Wall</p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">Connect with Us</h1>
           <p className="text-white/70 text-lg max-w-xl">
-            Reach us via email, LinkedIn, or follow our journey on Instagram. We'd love to hear from you.
+            Follow IMIG's social handles to keep up to date.
           </p>
         </div>
       </div>
@@ -38,8 +38,8 @@ export default async function SocialWallPage() {
                 { icon: <Mail size={18} />, label: 'Email', value: siteConfig.email, href: `mailto:${siteConfig.email}` },
                 { icon: <Linkedin size={18} />, label: 'LinkedIn', value: 'Internal Medicine Interest Group SMC', href: 'https://linkedin.com/company/imigsmc' },
                 { icon: <Instagram size={18} />, label: 'Instagram', value: `@${siteConfig.instagram}`, href: 'https://instagram.com/imig.smc' },
-                { icon: <Youtube size={18} />, label: 'YouTube', value: 'IMIG SMC', href: siteConfig.youtube },
-                { icon: <MapPin size={18} />, label: 'Location', value: 'Sindh Medical College, Karachi', href: null },
+                { icon: <Youtube size={18} />, label: 'YouTube', value: 'IMIG SMC', href: 'https://www.youtube.com/@imig-smc' },
+                { icon: <MapPin size={18} />, label: 'Location', value: 'Sindh Medical College, Karachi', href: 'https://www.google.com/maps/place/Jinnah+Sindh+Medical+University/@24.8511933,67.0425305,1321m/data=!3m1!1e3!4m6!3m5!1s0x3eb33dd546e80561:0x9fac68702d86bd41!8m2!3d24.8511885!4d67.0451054!16s%2Fm%2F03gqgjn?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D' },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-4 bg-blue-50 rounded-2xl border border-blue-100 p-4">
                   <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center text-blue-500 flex-shrink-0">

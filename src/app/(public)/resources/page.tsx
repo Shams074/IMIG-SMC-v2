@@ -92,7 +92,7 @@ export default function ResourcesPage() {
                     allowFullScreen
                   />
                   <div className="text-center mt-2 pb-2">
-                    <a href="https://www.youtube.com/@imigsmc" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-red-600 hover:text-red-800 flex items-center justify-center gap-1">
+                    <a href="https://www.youtube.com/@imig-smc" target="_blank" rel="noopener noreferrer" className="text-sm font-semibold text-red-600 hover:text-red-800 flex items-center justify-center gap-1">
                       <Youtube size={16} /> Subscribe on YouTube
                     </a>
                   </div>
