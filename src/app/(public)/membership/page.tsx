@@ -1,6 +1,7 @@
 import { Section, SectionHeader, Card } from '@/components/ui'
 import { createClient } from '@/lib/supabase/server'
 import { ExternalLink, Users, Clock } from 'lucide-react'
+import Image from "next/image"
 
 export const revalidate = 60
 
@@ -147,10 +148,20 @@ export default async function MembershipPage() {
       <Section className="bg-green-50 border-y border-green-100">
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-white border border-green-200 flex flex-col items-center justify-center text-green-700 shadow-sm relative overflow-hidden">
+            {/* <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-white border border-green-200 flex flex-col items-center justify-center text-green-700 shadow-sm relative overflow-hidden">
               <span className="text-3xl mb-1">🏛️</span>
               <span className="text-[10px] font-bold uppercase tracking-widest text-green-800">ACP Logo</span>
-            </div>
+            </div> */}
+            
+            <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-white border border-green-200 flex items-center justify-center shadow-sm relative overflow-hidden p-3">
+              <Image
+                src="/ACP-Logo.jpg"
+                alt="American College of Physicians logo"
+                width={500}
+                height={250}
+                className="object-contain"
+              />
+               </div>
             <div className="flex-1 text-center md:text-left">
               <p className="text-xs font-bold uppercase tracking-widest text-green-600 mb-2">Bonus Opportunity</p>
               <h3 className="font-serif text-2xl font-bold text-green-900 mb-2">Register with ACP for FREE</h3>

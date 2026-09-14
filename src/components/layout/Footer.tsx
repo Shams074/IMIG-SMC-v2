@@ -126,7 +126,7 @@ export default function Footer() {
     <Image
       src="https://www.acponline.org/themes/acp_scratch/images/acp-logo-horizontal-4c.svg"
       alt="American College of Physicians"
-      width={120}
+      width={200}
       height={48}
       className="object-contain opacity-80 hover:opacity-100 transition-opacity"
     />
