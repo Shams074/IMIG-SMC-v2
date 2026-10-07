@@ -14,7 +14,7 @@ const navItems = [
   { icon: Instagram,       label: 'Instagram Posts', href: '/admin/instagram' },
   { icon: UserCheck,       label: 'Registrations',   href: '/admin/registrations' },
   { icon: BookOpen,        label: 'Resources',       href: '/admin/resources' },
-  { icon: FileText,        label: 'Members',         href: '/admin/members' },
+  { icon: FileText,        label: 'Membership',      href: '/admin/membership' },
 ]
 
 interface Props {

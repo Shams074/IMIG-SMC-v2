@@ -43,7 +43,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex items-center gap-1 ml-auto">
+        <ul className="hidden xl:flex items-center gap-1 ml-auto">
           {navLinks.map((link) => {
             const active = pathname === link.href
             return (
@@ -75,7 +75,7 @@ export default function Navbar() {
         {/* Mobile menu button */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="ml-auto lg:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors text-blue-700"
+          className="ml-auto xl:hidden p-2 rounded-lg hover:bg-blue-50 transition-colors text-blue-700"
           aria-label="Toggle menu"
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
@@ -84,7 +84,7 @@ export default function Navbar() {
 
       {/* Mobile Nav */}
       {mobileOpen && (
-        <div className="lg:hidden border-t border-blue-100 bg-white px-6 py-4 flex flex-col gap-1">
+        <div className="xl:hidden border-t border-blue-100 bg-white px-6 py-4 flex flex-col gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.href}

@@ -16,6 +16,7 @@ export default function NewTeamMemberPage() {
   const [photoUrl, setPhotoUrl] = useState('')
   const [linkedinUrl, setLinkedinUrl] = useState('')
   const [displayOrder, setDisplayOrder] = useState('0')
+  const [category, setCategory] = useState('Directors')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
 
@@ -32,6 +33,7 @@ export default function NewTeamMemberPage() {
       photo_url: photoUrl || null,
       linkedin_url: linkedinUrl.trim() || null,
       display_order: parseInt(displayOrder) || 0,
+      category: category,
       is_active: true,
     })
 
@@ -95,6 +97,16 @@ export default function NewTeamMemberPage() {
             <input type="number" value={displayOrder} onChange={e => setDisplayOrder(e.target.value)}
               placeholder="0 = first, 1 = second, etc."
               className="w-full border border-blue-200 rounded-xl px-4 py-3 text-sm text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          </div>
+
+          <div>
+            <label className="block text-xs font-semibold text-blue-700 uppercase tracking-wider mb-1.5">Section Category *</label>
+            <select value={category} onChange={e => setCategory(e.target.value)}
+              className="w-full border border-blue-200 rounded-xl px-4 py-3 text-sm text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white">
+              <option value="Patrons">Patrons</option>
+              <option value="President's Team">President's Team</option>
+              <option value="Directors">Directors</option>
+            </select>
           </div>
         </div>
 

@@ -4,6 +4,7 @@ import { createClient } from '@/lib/supabase/server'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, ExternalLink } from 'lucide-react'
+import LatestVideos from "@/components/LatestVideos";
 
 export const revalidate = 60
 
@@ -111,56 +112,30 @@ export default async function AboutPage() {
       <Section>
         <SectionHeader label="People" title="Our Team Structure" />
 
-        {/* If DB has team members — show them */}
-        {hasDbTeam ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {dbTeam.map(member => (
-              <Card key={member.id} className="text-center !p-4" hover={false}>
-                {member.photo_url ? (
-                  <div className="relative w-14 h-14 rounded-full overflow-hidden mx-auto mb-3">
-                    <Image src={member.photo_url} alt={member.name} fill className="object-cover" />
-                  </div>
-                ) : (
-                  <div className="w-14 h-14 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-lg mx-auto mb-3">
-                    {member.name.charAt(0)}
-                  </div>
-                )}
-                {member.linkedin_url ? (
-                  <a href={member.linkedin_url} target="_blank" rel="noopener noreferrer"
-                    className="font-semibold text-blue-900 text-xs hover:text-blue-600 hover:underline underline-offset-2 transition-colors">
-                    {member.name}
-                  </a>
-                ) : (
-                  <p className="font-semibold text-blue-900 text-xs">{member.name}</p>
-                )}
-                <p className="text-[11px] text-blue-500 mt-0.5">{member.role}</p>
-              </Card>
-            ))}
-          </div>
-        ) : (
-          // Fallback — static data from data.ts
           <>
             {/* Patrons */}
             <div className="mb-10">
               <h3 className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-4">Patrons</h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-xl">
                 {patrons.map((m) => (
-                  <Card key={m.name} className="!p-5 flex items-center gap-4" hover={false}>
-                    <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
-                    {/* <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold text-sm flex-shrink-0">
-                      {m.name.split(' ').slice(-1)[0][0]}{m.name.split(' ')[0][0]}
-                    </div> */}
-                    <div>
-                      {m.linkedin ? (
-                        <a href={m.linkedin} target="_blank" rel="noopener noreferrer"
-                          className="font-semibold text-blue-900 text-sm hover:text-blue-600 hover:underline underline-offset-2 transition-colors">
-                          {m.name}
-                        </a>
-                      ) : (
-                        <p className="font-semibold text-blue-900 text-sm">{m.name}</p>
-                      )}
-                      <p className="text-xs text-blue-500 mt-0.5">{m.role}</p>
-                    </div>
+                  <Card key={m.name} className="!p-0 overflow-hidden" hover={!!m.linkedin}>
+                    {m.linkedin ? (
+                      <a href={m.linkedin} target="_blank" rel="noopener noreferrer" className="p-5 flex items-center gap-4 block w-full h-full group">
+                        <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
+                        <div>
+                          <p className="font-semibold text-blue-900 text-sm group-hover:text-blue-600 transition-colors">{m.name}</p>
+                          <p className="text-xs text-blue-500 mt-0.5">{m.role}</p>
+                        </div>
+                      </a>
+                    ) : (
+                      <div className="p-5 flex items-center gap-4 block w-full h-full">
+                        <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
+                        <div>
+                          <p className="font-semibold text-blue-900 text-sm">{m.name}</p>
+                          <p className="text-xs text-blue-500 mt-0.5">{m.role}</p>
+                        </div>
+                      </div>
+                    )}
                   </Card>
                 ))}
               </div>
@@ -171,17 +146,20 @@ export default async function AboutPage() {
               <h3 className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-4">President's Team</h3>
               <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
                 {presidentsTeam.map((m) => (
-                  <Card key={m.name} className="text-center !p-4" hover={false}>
-                    <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
+                  <Card key={m.name} className="text-center !p-0 overflow-hidden" hover={!!m.linkedin}>
                     {m.linkedin ? (
-                      <a href={m.linkedin} target="_blank" rel="noopener noreferrer"
-                        className="font-semibold text-blue-900 text-xs hover:text-blue-600 hover:underline underline-offset-2 transition-colors">
-                        {m.name}
+                      <a href={m.linkedin} target="_blank" rel="noopener noreferrer" className="p-4 block w-full h-full group">
+                        <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
+                        <p className="font-semibold text-blue-900 text-xs group-hover:text-blue-600 transition-colors">{m.name}</p>
+                        <p className="text-[11px] text-blue-500 mt-0.5">{m.role}</p>
                       </a>
                     ) : (
-                      <p className="font-semibold text-blue-900 text-xs">{m.name}</p>
+                      <div className="p-4 block w-full h-full">
+                        <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
+                        <p className="font-semibold text-blue-900 text-xs">{m.name}</p>
+                        <p className="text-[11px] text-blue-500 mt-0.5">{m.role}</p>
+                      </div>
                     )}
-                    <p className="text-[11px] text-blue-500 mt-0.5">{m.role}</p>
                   </Card>
                 ))}
               </div>
@@ -192,26 +170,25 @@ export default async function AboutPage() {
               <h3 className="text-xs font-bold uppercase tracking-widest text-blue-400 mb-4">Directors</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
                 {directors.map((m) => (
-                  <Card key={m.name} className="text-center !p-4" hover={false}>
-                   <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
-                    {/* <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-bold text-sm mx-auto mb-2">
-                      {m.name.charAt(0)}
-                    </div> */}
+                  <Card key={m.name} className="text-center !p-0 overflow-hidden" hover={!!m.linkedin}>
                     {m.linkedin ? (
-                      <a href={m.linkedin} target="_blank" rel="noopener noreferrer"
-                        className="font-semibold text-blue-900 text-xs hover:text-blue-600 hover:underline underline-offset-2 transition-colors">
-                        {m.name}
+                      <a href={m.linkedin} target="_blank" rel="noopener noreferrer" className="p-4 block w-full h-full group">
+                        <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
+                        <p className="font-semibold text-blue-900 text-xs group-hover:text-blue-600 transition-colors">{m.name}</p>
+                        <p className="text-[11px] text-blue-500 mt-0.5">{m.role}</p>
                       </a>
                     ) : (
-                      <p className="font-semibold text-blue-900 text-xs">{m.name}</p>
+                      <div className="p-4 block w-full h-full">
+                        <Image src={m.photo} alt={m.name} width={48} height={48} className="w-12 h-12 rounded-full object-cover mx-auto mb-2" />
+                        <p className="font-semibold text-blue-900 text-xs">{m.name}</p>
+                        <p className="text-[11px] text-blue-500 mt-0.5">{m.role}</p>
+                      </div>
                     )}
-                    <p className="text-[11px] text-blue-500 mt-0.5">{m.role}</p>
                   </Card>
                 ))}
               </div>
             </div>
           </>
-        )}
       </Section>
 
       {/* Departments */}
@@ -235,6 +212,7 @@ export default async function AboutPage() {
           ))}
         </div>
       </Section>
+      <LatestVideos />
     </>
   )
 }

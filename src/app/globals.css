@@ -24,7 +24,7 @@ body {
   display: flex;
   gap: 40px;
   white-space: nowrap;
-  animation: ticker 6s linear infinite; /* Faster on mobile */
+  animation: ticker 3s linear infinite; /* Faster on mobile */
 }
 @media (min-width: 768px) {
   .ticker-inner {

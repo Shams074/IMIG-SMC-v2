@@ -17,6 +17,7 @@ export default function EditTeamMemberPage() {
   const [photoUrl, setPhotoUrl] = useState('')
   const [linkedinUrl, setLinkedinUrl] = useState('')
   const [displayOrder, setDisplayOrder] = useState('0')
+  const [category, setCategory] = useState('Directors')
   const [isActive, setIsActive] = useState(true)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -32,6 +33,7 @@ export default function EditTeamMemberPage() {
         setPhotoUrl(data.photo_url ?? '')
         setLinkedinUrl(data.linkedin_url ?? '')
         setDisplayOrder(data.display_order?.toString() ?? '0')
+        setCategory(data.category ?? 'Directors')
         setIsActive(data.is_active)
       }
       setLoading(false)
@@ -51,6 +53,7 @@ export default function EditTeamMemberPage() {
       photo_url: photoUrl || null,
       linkedin_url: linkedinUrl.trim() || null,
       display_order: parseInt(displayOrder) || 0,
+      category: category,
       is_active: isActive,
     }).eq('id', id)
 
@@ -120,6 +123,15 @@ export default function EditTeamMemberPage() {
             <label className="block text-xs font-semibold text-blue-700 uppercase tracking-wider mb-1.5">Display Order</label>
             <input type="number" value={displayOrder} onChange={e => setDisplayOrder(e.target.value)}
               className="w-full border border-blue-200 rounded-xl px-4 py-3 text-sm text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400" />
+          </div>
+          <div>
+            <label className="block text-xs font-semibold text-blue-700 uppercase tracking-wider mb-1.5">Section Category *</label>
+            <select value={category} onChange={e => setCategory(e.target.value)}
+              className="w-full border border-blue-200 rounded-xl px-4 py-3 text-sm text-blue-900 focus:outline-none focus:ring-2 focus:ring-blue-400 bg-white">
+              <option value="Patrons">Patrons</option>
+              <option value="President's Team">President's Team</option>
+              <option value="Directors">Directors</option>
+            </select>
           </div>
           <label className="flex items-center gap-2 cursor-pointer">
             <input type="checkbox" checked={isActive} onChange={e => setIsActive(e.target.checked)} className="w-4 h-4 accent-blue-600" />

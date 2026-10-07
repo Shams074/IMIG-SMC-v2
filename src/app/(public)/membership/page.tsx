@@ -5,30 +5,6 @@ import Image from "next/image"
 
 export const revalidate = 60
 
-const membershipTypes = [
-  {
-    title: 'SMC Student Member',
-    subtitle: 'General Member',
-    desc: 'Open to all current MBBS undergraduates of Sindh Medical College.',
-    perks: ['Access to all member only events', 'Resource library', 'Member toolkit', 'Guided mentorship'],
-    recommended: true,
-  },
-  {
-    title: 'Campus Ambassador',
-    subtitle: 'Leadership Role',
-    desc: 'Represent IMIG SMC in your university and help organize our activities.',
-    perks: ['All student benefits', 'Leadership role', 'Special recognition', 'Networking opportunities'],
-    recommended: false,
-  },
-  {
-    title: 'SMC Core Team Member',
-    subtitle: 'Executive & Department Lead',
-    desc: 'Reserved for students inducted into the IMIG SMC Executive Committee and working departments.',
-    perks: ['Leadership experience', 'Exclusive networking with faculty', 'Priority access to all workshops', 'All student benefits'],
-    recommended: false,
-  },
-]
-
 export default async function MembershipPage() {
   const supabase = createClient()
 
@@ -39,11 +15,42 @@ export default async function MembershipPage() {
     .limit(1)
     .single()
 
-  const isOpen     = settings?.is_open ?? false
-  const regTitle   = settings?.title ?? 'Membership Applications Open!'
-  const regDesc    = settings?.description ?? 'Applications are now open for IMIG SMC membership.'
-  const formUrl    = settings?.form_url ?? ''
-  const deadline   = settings?.deadline ?? ''
+  const studentOpen = settings?.student_is_open ?? false
+  const studentUrl = settings?.student_form_url ?? ''
+  const coreOpen = settings?.core_is_open ?? false
+  const coreUrl = settings?.core_form_url ?? ''
+  const ambassadorOpen = settings?.ambassador_is_open ?? false
+  const ambassadorUrl = settings?.ambassador_form_url ?? ''
+
+  const membershipTypes = [
+    {
+      title: 'SMC Student Member',
+      subtitle: 'General Member',
+      desc: 'Open to all current MBBS undergraduates of Sindh Medical College.',
+      perks: ['Access to all member only events', 'Resource library', 'Member toolkit', 'Guided mentorship'],
+      recommended: true,
+      isOpen: studentOpen,
+      formUrl: studentUrl
+    },
+    {
+      title: 'Campus Ambassador',
+      subtitle: 'Leadership Role',
+      desc: 'Represent IMIG SMC in your university and help organize our activities.',
+      perks: ['All student benefits', 'Leadership role', 'Special recognition', 'Networking opportunities'],
+      recommended: false,
+      isOpen: ambassadorOpen,
+      formUrl: ambassadorUrl
+    },
+    {
+      title: 'SMC Core Team Member',
+      subtitle: 'Executive & Department Lead',
+      desc: 'Reserved for students inducted into the IMIG SMC Executive Committee and working departments.',
+      perks: ['Leadership experience', 'Exclusive networking with faculty', 'Priority access to all workshops', 'All student benefits'],
+      recommended: false,
+      isOpen: coreOpen,
+      formUrl: coreUrl
+    },
+  ]
 
   return (
     <>
@@ -54,65 +61,17 @@ export default async function MembershipPage() {
           <p className="text-white/70 text-lg max-w-xl">
             Become a General Member and unlock access to our member only events, resources, research opportunities, and the ACP network.
             <br /><br />
-            <span className="font-semibold text-blue-200">Membership applications for the 2025/2026 cycle will open soon. Please check back later.</span>
+            <span className="font-semibold text-blue-200">Review the membership options below to find the right fit for you.</span>
           </p>
         </div>
       </div>
 
       <Section>
-        {/* ── Live Registration Banner (admin controlled) ── */}
-        {isOpen ? (
-          <div className="bg-gradient-to-r from-blue-700 to-blue-500 rounded-2xl p-8 mb-12 text-white shadow-lg shadow-blue-200">
-            <div className="flex items-center gap-2 mb-3">
-              <div className="w-2 h-2 rounded-full bg-teal-400 animate-pulse" />
-              <span className="text-xs font-bold uppercase tracking-widest opacity-80">Applications Open Now</span>
-            </div>
-            <h2 className="font-serif text-2xl md:text-3xl font-bold mb-3">{regTitle}</h2>
-            <p className="text-white/80 text-sm leading-relaxed max-w-xl mb-5">{regDesc}</p>
-            {deadline && (
-              <div className="flex items-center gap-2 text-white/70 text-xs mb-5">
-                <Clock size={13} />
-                <span>Application Deadline: <strong className="text-white">{deadline}</strong></span>
-              </div>
-            )}
-            {formUrl && (
-              <a
-                href={formUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 bg-white text-blue-700 font-bold text-sm px-6 py-3 rounded-xl hover:bg-blue-50 transition-colors shadow-md"
-              >
-                <Users size={15} /> Apply for Membership →
-              </a>
-            )}
-          </div>
-        ) : (
-          /* Closed state */
-          <div className="bg-blue-50 border-2 border-dashed border-blue-200 rounded-2xl p-8 mb-12 text-center">
-            <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center mx-auto mb-3 text-2xl">📋</div>
-            <h3 className="font-serif text-xl font-bold text-blue-900 mb-2">Applications Open Seasonally</h3>
-            <p className="text-blue-600/70 text-sm leading-relaxed mb-5 max-w-md mx-auto">
-              Membership applications are opened periodically throughout the year.
-              Follow us on LinkedIn and Instagram to be notified when the next cycle opens.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <a href="https://instagram.com/imig.smc" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg bg-blue-500 text-white hover:bg-blue-700 transition-colors">
-                Follow on Instagram
-              </a>
-              <a href="https://linkedin.com/company/imigsmc" target="_blank" rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 text-sm font-semibold px-5 py-2.5 rounded-lg border-2 border-blue-500 text-blue-600 hover:bg-blue-50 transition-colors">
-                Follow on LinkedIn
-              </a>
-            </div>
-          </div>
-        )}
-
         {/* Membership Types */}
         <SectionHeader label="Options" title="Choose Your Membership Type" center />
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-2xl mx-auto mb-14">
           {membershipTypes.map((type) => (
-            <div key={type.title} className={`rounded-2xl p-6 border-2 transition-all duration-200 ${
+            <div key={type.title} className={`relative rounded-2xl p-6 border-2 transition-all duration-200 ${
               type.recommended
                 ? 'border-blue-500 bg-blue-50 shadow-lg shadow-blue-100/60'
                 : 'border-blue-100 bg-white'
@@ -122,10 +81,20 @@ export default async function MembershipPage() {
                   Recommended
                 </span>
               )}
-              <h3 className="font-semibold text-blue-900 mb-0.5">{type.title}</h3>
+              
+              <div className="flex items-center justify-between mb-0.5">
+                <h3 className="font-semibold text-blue-900">{type.title}</h3>
+                {type.isOpen && type.formUrl && (
+                  <span className="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider text-teal-600 bg-teal-100 px-2 py-0.5 rounded-full">
+                    <span className="w-1.5 h-1.5 rounded-full bg-teal-500 animate-pulse" /> Open
+                  </span>
+                )}
+              </div>
+              
               <p className="text-xs text-blue-400 font-medium mb-3 uppercase tracking-wider">{type.subtitle}</p>
               <p className="text-xs text-blue-600/70 mb-4 leading-relaxed">{type.desc}</p>
-              <ul className="flex flex-col gap-1.5">
+              
+              <ul className="flex flex-col gap-1.5 mb-6">
                 {type.perks.map((perk) => (
                   <li key={perk} className="flex items-center gap-2 text-xs text-blue-700">
                     <span className="w-4 h-4 rounded-full bg-blue-100 flex items-center justify-center text-[10px] text-blue-500 flex-shrink-0">✓</span>
@@ -133,12 +102,20 @@ export default async function MembershipPage() {
                   </li>
                 ))}
               </ul>
-              {isOpen && formUrl && (
-                <a href={formUrl} target="_blank" rel="noopener noreferrer"
-                  className="mt-4 w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors">
-                  Apply Now <ExternalLink size={11} />
-                </a>
-              )}
+              
+              <div className="mt-auto">
+                {type.isOpen && type.formUrl ? (
+                  <a href={type.formUrl} target="_blank" rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+                    Apply Now <ExternalLink size={11} />
+                  </a>
+                ) : (
+                  <button disabled
+                    className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-semibold px-4 py-2 rounded-lg bg-gray-100 text-gray-500 border border-gray-200 cursor-not-allowed">
+                    Registrations Closed
+                  </button>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -148,11 +125,6 @@ export default async function MembershipPage() {
       <Section className="bg-green-50 border-y border-green-100">
         <div className="max-w-3xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-white border border-green-200 flex flex-col items-center justify-center text-green-700 shadow-sm relative overflow-hidden">
-              <span className="text-3xl mb-1">🏛️</span>
-              <span className="text-[10px] font-bold uppercase tracking-widest text-green-800">ACP Logo</span>
-            </div> */}
-            
             <div className="flex-shrink-0 w-24 h-24 rounded-2xl bg-white border border-green-200 flex items-center justify-center shadow-sm relative overflow-hidden p-3">
               <Image
                 src="/ACP-Logo.jpg"
@@ -161,7 +133,7 @@ export default async function MembershipPage() {
                 height={250}
                 className="object-contain"
               />
-               </div>
+            </div>
             <div className="flex-1 text-center md:text-left">
               <p className="text-xs font-bold uppercase tracking-widest text-green-600 mb-2">Bonus Opportunity</p>
               <h3 className="font-serif text-2xl font-bold text-green-900 mb-2">Register with ACP for FREE</h3>
