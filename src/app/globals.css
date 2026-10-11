@@ -1,21 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Muli:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&family=Mulish:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,600;1,700&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --font-playfair: 'Playfair Display', serif;
-  --font-dm-sans: 'DM Sans', sans-serif;
+  --font-muli: 'Muli', 'Mulish', sans-serif;
+  --font-poppins: 'Poppins', sans-serif;
+  --font-heading: 'Muli', 'Mulish', sans-serif;
+  --font-body: 'Poppins', sans-serif;
+  /* Compatibility aliases */
+  --font-playfair: 'Muli', 'Mulish', sans-serif;
+  --font-dm-sans: 'Poppins', sans-serif;
 }
 
 * { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-dm-sans);
+  font-family: var(--font-poppins), 'Poppins', sans-serif;
   background: #ffffff;
   color: #0D2B3E;
   overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading, .font-serif {
+  font-family: var(--font-muli), 'Muli', 'Mulish', sans-serif;
 }
 
 /* Ticker animation — faster speed */

@@ -26,8 +26,11 @@ module.exports = {
         }
       },
       fontFamily: {
-        serif: ['var(--font-playfair)', 'Georgia', 'serif'],
-        sans: ['var(--font-dm-sans)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'Poppins', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-muli)', 'Muli', 'Mulish', 'sans-serif'],
+        heading: ['var(--font-muli)', 'Muli', 'Mulish', 'sans-serif'],
+        muli: ['var(--font-muli)', 'Muli', 'Mulish', 'sans-serif'],
+        poppins: ['var(--font-poppins)', 'Poppins', 'sans-serif'],
       },
       animation: {
         'ticker': 'ticker 15s linear infinite',
