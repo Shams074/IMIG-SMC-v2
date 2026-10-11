@@ -34,7 +34,7 @@ export default function Footer() {
             <div className="flex items-center gap-3 mb-4">
               {/* Logo — place your logo at /public/imig-logo.png
                   TODO: Once you add the file, replace the placeholder div with: */}
-                  {/* <Image src="/New IMIG Logo.png" alt="IMIG SMC" width={40} height={40} className="rounded-full" /> */}
+              {/* <Image src="/New IMIG Logo.png" alt="IMIG SMC" width={40} height={40} className="rounded-full" /> */}
              
             <Image
                 src="/New IMIG Logo.png"
